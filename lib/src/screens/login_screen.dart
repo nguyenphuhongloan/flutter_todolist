@@ -7,11 +7,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  String _username = "";
+  String _password = "";
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    String _username = "";
-    String _password = "";
+    
     return Scaffold(
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
