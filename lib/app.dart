@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:todoapp/src/screens/HomeScreen.dart';
 import 'package:todoapp/src/screens/login_screen.dart';
 
 class App extends StatefulWidget{
