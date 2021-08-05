@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapp/src/screens/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -9,10 +10,10 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   String _username = "";
   String _password = "";
+  
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    
     return Scaffold(
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
@@ -92,7 +93,25 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-            ])
+            ]),
+            SizedBox(
+              height: 150,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    print("ok");
+                    
+                  },
+                  child: Text(
+                    "Don't have any account? Sign up!",
+                    style: TextStyle(color: Colors.blueAccent),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
