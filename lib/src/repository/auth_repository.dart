@@ -55,7 +55,7 @@ class AuthRepository {
       
       await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (error) {
-      print("error: $error");
+      print("this is error: $error");
     }
    
   }

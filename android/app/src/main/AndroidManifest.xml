@@ -1,17 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.todoapp">
-<<<<<<< HEAD
-=======
-
->>>>>>> 7627ad89d2a32766790557b4542b088c1c1cfa48
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-<<<<<<< HEAD
-=======
-
->>>>>>> 7627ad89d2a32766790557b4542b088c1c1cfa48
    <application
         android:label="todoapp"
         android:icon="@mipmap/ic_launcher">
