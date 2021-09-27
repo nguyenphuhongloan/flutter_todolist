@@ -3,12 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthRepository {
-  GoogleSignIn _googleSignIn = GoogleSignIn(
-    scopes: [
-      'email',
-      'https://www.googleapis.com/auth/contacts.readonly',
-    ],
-  );
   Future<bool> register(email, password) async {
     UserCredential user = await FirebaseAuth.instance
         .createUserWithEmailAndPassword(email: email, password: password);
@@ -42,23 +36,30 @@ class AuthRepository {
     }
   }
 
-  Future<void> googleSignIn() async {
+  Future<bool> googleSignIn() async {
     try {
-     
-      GoogleSignInAccount? user = await _googleSignIn.signIn();
-      GoogleSignInAuthentication authentication = await user!.authentication;
-      OAuthCredential credential = GoogleAuthProvider.credential(
-        accessToken: authentication.accessToken,
-        idToken: authentication.idToken,
+      GoogleSignIn _googleSignIn = GoogleSignIn(
+        scopes: [
+          'email',
+        ],
       );
-
-      
+      await _googleSignIn.signOut();
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      print(googleUser!.email + ' lambiengcode');
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
+      print(googleAuth);
+      final credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
       await FirebaseAuth.instance.signInWithCredential(credential);
+      return true;
     } catch (error) {
       print("error: $error");
+      return false;
     }
-   
   }
 
-  Future<void> googleSignOut() => _googleSignIn.disconnect();
+  // Future<void> googleSignOut() => _googleSignIn.disconnect();
 }

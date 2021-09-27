@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "511582419826",
-    "project_id": "todolist-8a5e5",
-    "storage_bucket": "todolist-8a5e5.appspot.com"
+    "project_number": "522545380860",
+    "project_id": "todolist-sep",
+    "storage_bucket": "todolist-sep.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:511582419826:android:d1d4e41677c08d2878fbeb",
+        "mobilesdk_app_id": "1:522545380860:android:7c5b6ff0cd22f699b1c679",
         "android_client_info": {
           "package_name": "com.example.todoapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "511582419826-lrgono6al95rngbbuuevvc5rsqdbeg93.apps.googleusercontent.com",
+          "client_id": "522545380860-lo2qu45ienmb1so2t1relbovk1902iop.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.todoapp",
-            "certificate_hash": "a932d1cce76fb0bbb21a8c9f841739c14768af4c"
+            "certificate_hash": "8d6fa3dee8d83bd7436d23cda759b1c1b48136cf"
           }
         },
         {
-          "client_id": "511582419826-d4bal0mtnl8g2a2hatp3ibbhno4001v9.apps.googleusercontent.com",
+          "client_id": "522545380860-1urh6pniebk9ervs1ask99vnv3m79fgt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCGmaGSs8OSrCYh6rRVXS40mdIFl1D7g2o"
+          "current_key": "AIzaSyAj4z44NUNE7OJALSBReoBMYUU7DWZizeE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "511582419826-d4bal0mtnl8g2a2hatp3ibbhno4001v9.apps.googleusercontent.com",
+              "client_id": "522545380860-1urh6pniebk9ervs1ask99vnv3m79fgt.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

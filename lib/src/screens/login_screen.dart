@@ -142,8 +142,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () async{
-                        await AuthRepository().googleSignIn();
+                      onTap: () async {
+                        showDialogLoading(context);
+                        bool isSuccess = await AuthRepository().googleSignIn();
+                        Get.back();
+                        if (isSuccess) {
+                          Get.offAllNamed(Routes.ROOT);
+                        } else {}
                       },
                       child: Text(
                         "Have an Google account? Sign in with Google",
