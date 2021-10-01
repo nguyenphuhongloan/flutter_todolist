@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:todoapp/src/common/constraint.dart';
 import 'package:todoapp/src/repository/auth_repository.dart';
 import 'package:todoapp/src/routes/app_pages.dart';
 import 'package:todoapp/src/screens/register_screen.dart';
+import 'package:todoapp/src/widget/build_dialog.dart';
 import 'package:todoapp/src/widget/dialog_common.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -96,12 +98,24 @@ class _LoginScreenState extends State<LoginScreen> {
                     onTap: () async {
                       if (_formKey.currentState!.validate()) {
                         showDialogLoading(context);
-                        bool isSuccess =
+                        int isSuccess =
                             await AuthRepository().login(_email, _password);
                         Get.back();
-                        if (isSuccess) {
+                        if (isSuccess == 1) {
                           Get.offAllNamed(Routes.ROOT);
-                        } else {}
+                        } else {
+                          if (isSuccess == 2)
+                            showOKDialog(context, "Login failed",
+                                "You was input a invalid email, please check it again");
+                          if (isSuccess == 3)
+                            showOKDialog(context, "Login failed",
+                                "Your password is incorrect");
+                          if(isSuccess == 4)
+                            showOKDialog(context, "Login failed", "Can't find your email, please check it again");
+                          if(isSuccess == 0)
+                            showOKDialog(context, "Login failed", "Login failed, please check your connection and try again");
+                        
+                        }
                       }
                     },
                     child: Container(

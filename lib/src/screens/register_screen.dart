@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todoapp/src/repository/auth_repository.dart';
 import 'package:todoapp/src/routes/app_pages.dart';
+import 'package:todoapp/src/widget/build_dialog.dart';
 import 'package:todoapp/src/widget/dialog_common.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -73,13 +74,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       onTap: () async {
                         if (_formKey.currentState!.validate()) {
                           showDialogLoading(context);
-                          bool isSuccess =
+                          int isSuccess =
                               await AuthRepository().register(email, password);
                           Get.back();
-                          if (isSuccess) {
+                          if (isSuccess == 1) {
                             Get.offAllNamed(Routes.ROOT);
                           } else {
-      
+                            if (isSuccess == 2) {
+                              showOKDialog(context, "Register failed",
+                                  "Your email is invalid, please check it again");
+                            }
+                            if (isSuccess == 3) {
+                              showOKDialog(context, "Register failed",
+                                  "This email already in use, if you have an account, please login");
+                            }
+                            if (isSuccess == 4) {
+                              showOKDialog(context, "Register failed",
+                                  "weak password");
+                            }
+                            if (isSuccess == 0) {
+                              showOKDialog(
+                                  context, "Register failed", "Register failed, please check your connection and try again");
+                            }
                           }
                         }
                       },
